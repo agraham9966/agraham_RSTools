@@ -2,7 +2,7 @@ import sys
 import os 
 import cv2
 from osgeo import gdal, osr, ogr
-import disease_detect_util as dd_util 
+from Research_Tools import create_gdal_obj
 
 dir1 = sys.argv[1]
 dir2 = sys.argv[2]
@@ -26,7 +26,7 @@ def MatchRasterProjection(MasterMosaic, SlaveMosaic):
     srs=osr.SpatialReference(wkt=spatialreference)
     check = srs.GetAttrValue('projcs')
     print "Master Project CS", check
-    dataset = dd_util.create_gdal_obj(outfilename, SlaveArray, 'GTiff', geotransform, spatialreference)
+    dataset = Research_Tools.create_gdal_obj(outfilename, SlaveArray, 'GTiff', geotransform, spatialreference)
 	
     return dataset
 	
