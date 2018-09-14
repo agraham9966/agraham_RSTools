@@ -19,7 +19,7 @@ def SplitMultipageTiff(directory):
 		
 		subprocess.call(args, shell=True)
 
-##reorders bands based on original France 2017 FD order - into sequential order. Original order: 676, 636, 550, 850, 450, 610, 694, 900		
+##reorders bands 	
 def reorderbands(Mosaic, outfilename):
     try:
         subprocess.check_call(['gdal_translate', '-b', '5', '-b', '3', '-b', '6', '-b', '2', '-b', '1', '-b', '7', '-b', '4', '-b', '8', '-of', 'GTiff', Mosaic, outfilename], shell=True)
